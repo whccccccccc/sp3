@@ -67,3 +67,31 @@ DispatchServlet ViewResolver CharacterEncodingFilter
     3. 这142个配置类来自于spring-boot-autoconfigure下 META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports文件指定的
     4.    每一个自动配置类，都有条件注解@ConditionalOnxxx，只有条件成立，才能生效
 - 写业务
+
+# yaml 配置我呢见
+## 基本语法
+   ● 大小写敏感
+   ● 使用缩进表示层级关系，k: v，使用空格分割k,v
+   ● 缩进时不允许使用Tab键，只允许使用空格。换行
+   ● 缩进的空格数目不重要，只要相同层级的元素左侧对齐即可
+   ● # 表示注释，从这个字符一直到行尾，都会被解析器忽略。
+### 支持的写法：
+● 对象：键值对的集合，如：映射（map）/ 哈希（hash） / 字典（dictionary）
+● 数组：一组按次序排列的值，如：序列（sequence） / 列表（list）
+● 纯量：单个的、不可再分的值，如：字符串、数字、bool、日期 
+
+## 细节
+● birthDay 推荐写为 birth-day
+● 文本：
+○ 单引号不会转义【\n 则为普通字符串显示】
+○ 双引号会转义【\n会显示为换行符】
+● 大文本
+○ |开头，大文本写在下层，保留文本格式，换行符正确显示
+○ >开头，大文本写在下层，折叠换行符
+● 多文档合并
+○ 使用---可以把多个yaml文档合并在一个文档中，每个文档区依然认为内容独立
+
+
+
+# 日志配置
+
