@@ -202,3 +202,12 @@ spring.mvc.pathmatch.matching-strategy=ant_path_matcher
    1.7. 找到一个合适的返回值处理器 HandlerMethodReturnValueHandler
    1.8. 最终找到 RequestResponseBodyMethodProcessor能处理 标注了 @ResponseBody注解的方法
    1.9. RequestResponseBodyMethodProcessor 调用writeWithMessageConverters ,利用MessageConverter把返回值写出去
+
+上面解释：@ResponseBody由HttpMessageConverter处理
+
+2. HttpMessageConverter 会先进行内容协商
+   2.1. 遍历所有的MessageConverter看谁支持这种内容类型的数据
+   2.2. 默认MessageConverter有以下
+   2.3.
+   2.4. 最终因为要json所以MappingJackson2HttpMessageConverter支持写出json
+   2.5. jackson用ObjectMapper把对象写出去
