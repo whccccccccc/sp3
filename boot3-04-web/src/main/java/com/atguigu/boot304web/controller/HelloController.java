@@ -1,6 +1,10 @@
 package com.atguigu.boot304web.controller;
 
 import com.atguigu.boot304web.domain.Person;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,5 +40,17 @@ public class HelloController {
         person.setName("whc");
         person.setPhone("155555555555");
         return person;
+    }
+
+    public static void main(String[] args) throws JsonProcessingException {
+        Person person = new Person();
+        person.setAge(18);
+        person.setName("whc");
+        person.setPhone("155555555555");
+        YAMLFactory yamlFactory = new YAMLFactory();
+        yamlFactory.disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER);
+        ObjectMapper objectMapper = new ObjectMapper(yamlFactory);
+        String s = objectMapper.writeValueAsString(person);
+        System.out.println(s);
     }
 }

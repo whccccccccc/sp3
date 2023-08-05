@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+th:text: 替换文本内容
+th:utext: 不会转义html标签
+<h1>Welcome <span th:text="${name}"></span></h1>
+<h1>Welcome <span th:utext="${name}"></span></h1>
+<hr>
+th:任意html属性 动态替换
+<img th:src="${imgUrl}" alt="" style="width: 300px">
+<hr>
+th:attr 任意属性 动态替换
+<img th:attr="src=${imgUrl},style=${style}">
+<hr>
+th:其他指令
+<img th:src="${imgUrl}" th:if="${show}" style="width: 300px">
+</body>
+</html>
