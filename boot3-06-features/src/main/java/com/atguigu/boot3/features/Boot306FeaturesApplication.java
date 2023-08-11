@@ -1,10 +1,16 @@
 package com.atguigu.boot3.features;
 
+import com.atguigu.boot3.robot.starter.robot.RobotAutoConfiguration;
+import com.atguigu.boot3.robot.starter.robot.annotation.EnableRobot;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
+//@Import(RobotAutoConfiguration.class) //版本1
+//@EnableRobot//版本2
+//版本3 使用SPI机制
 public class Boot306FeaturesApplication {
 
 //	public static void main(String[] args) {
